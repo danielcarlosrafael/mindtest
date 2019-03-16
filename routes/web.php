@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//POSTAGEM
+Route::group(['prefix' => 'postagem'], function(){
+    Route::get('/', 'PostagemController@index');
+    Route::get('/novo', 'PostagemController@create');
+    Route::post('/novo/gravar', 'PostagemController@store');
+    Route::get('/alterar/{id}', 'PostagemController@show');
+    Route::post('/alteracao/alterar/{id}', 'PostagemController@update');
+    Route::get('/deletar/{id}', 'PostagemController@destroy');
 });
+
